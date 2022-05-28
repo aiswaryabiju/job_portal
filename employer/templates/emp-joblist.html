@@ -1,0 +1,33 @@
+{%extends 'base.html'%}
+{%block body_block%}
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h2>Job posted by {{request.user}}</h2>
+        {%for job in jobs%}
+
+
+        <div class="card mt-3" style="width: 18rem;">
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Job Title : </strong>{{job.job_title}}</li>
+    <li class="list-group-item"><strong>Role : </strong>{{job.role}}</li>
+    <li class="list-group-item"><strong>Qualification : </strong>{{job.qualification}}</li>
+      <li class="list-group-item"><strong>Posted Date : </strong>{{job.created_date}}</li>
+
+
+  </ul>
+
+</div>
+        <a href="{%url 'ejobdetail' job.id%}" class="btn btn-outline-primary">More detail</a>
+      <a href="{%url 'ejobupdate' job.id%}"  class="btn btn-outline-dark">Update</a>
+      <a href="{%url 'viewapps' job.id%}" class="btn btn-outline-success">View Applications</a>
+        {%endfor%}
+
+
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>
+{%endblock%}

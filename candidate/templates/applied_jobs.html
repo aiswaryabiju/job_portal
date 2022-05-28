@@ -1,0 +1,27 @@
+{%extends 'base1.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1 class="mb-3">Applied Jobs</h1>
+            {%for application in applyjobs%}
+
+
+            <div class="card mb-3" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Job Title : </strong>{{application.job.job_title}}</li>
+    <li class="list-group-item"><strong>Role : </strong>{{application.job.role}}</li>
+    <li class="list-group-item"><strong>Job Description : </strong>{{application.job.job_description}}</li>
+    <li class="list-group-item"><strong>Application Status : </strong>{{application.status}}</li>
+      <li class="list-group-item"><strong>Applied Date : </strong>{{application.date}}</li>
+  </ul>
+</div>
+
+
+            {%endfor%}
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

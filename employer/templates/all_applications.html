@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            {%if all_apps%}
+            {%for app in all_apps%}
+            <h2>Applicants for {{app.job.job_title}}</h2>
+                <div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Applicant Name : </strong>{{app.applicant}}</li>
+    <li class="list-group-item"><strong>Applied Date : </strong>{{app.date}}</li>
+    <li class="list-group-item"><strong>Qualification : </strong>{{app.applicant.candidates.qualification}}</li>
+          <li class="list-group-item"><strong>Qualification : </strong><a href="{{app.applicant.candidates.cv.url}}">{{app.applicant.candidates.cv}}</a></li>
+      <a href="{%url 'applicantprofile' app.id%}" class="btn btn-outline-secondary">View Profile</a>
+
+  </ul>
+</div>
+
+            {%endfor%}
+
+            {%else%}
+                <h3>No new applications</h3>
+            {%endif%}
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,38 @@
+{%extends 'base1.html'%}
+{%block body_block%}
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+         <h1 class="mt-3 mb-2">Profile Details</h1>
+      <div class="card" style="width: 18rem;">
+  <img src="{{request.user.candidates.profile_pic.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+
+    <h5 class="card-title"><strong>User : </strong>{{request.user}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Age : </strong>{{request.user.candidates.age}}</li>
+    <li class="list-group-item"><strong>Skills : </strong>{{request.user.candidates.skills}}</li>
+      <li class="list-group-item"><strong>Qualification : </strong>{{request.user.candidates.qualification}}</li>
+
+  </ul>
+
+</div>
+
+    </div>
+
+    <div class="col-4"></div>
+  </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2">
+            <a href="{%url 'profile-edit' user.id%}" class="btn btn-outline-warning mt-3">Edit profile</a>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{%endblock%}

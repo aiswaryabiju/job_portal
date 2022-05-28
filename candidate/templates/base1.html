@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="{%static 'css/cand_style.css'%}">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><u>JOB PORTAL</u></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="{%url 'cand-home'%}">Home</a>
+        </li>
+        <li class="nav-item">
+          {%if request.user.candidates%}
+          <a class="nav-link active" aria-current="page" href="{%url 'cand-viewprofile'%}">View Profile</a>
+          {%else%}
+          <a class="nav-link active" aria-current="page" href="{%url 'cand-profile'%}">Add Profile</a>
+          {%endif%}
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="{%url 'cand-joblist'%}">All Jobs</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="{%url 'my-app'%}">Applied Jobs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{%url 'accepted_apps'%}">Notifications</a>
+        </li>
+      </ul>
+      <ul>
+
+
+
+        <li class="nav-item">
+          <a href="{%url 'signout'%}">
+            <button type="submit" class="btn btn-outline-danger">LOGOUT</button></a>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  {%block body_block%}
+
+    {%endblock%}
+
+</div>
+
+</body>
+</html>

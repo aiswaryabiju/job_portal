@@ -1,0 +1,59 @@
+{%extends 'base1.html'%}
+{%block body_block%}
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h2 class="ms-5"><u>All Jobs</u></h2>
+        {%for job in jobs%}
+
+        <div class="card mt-3" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Job Title : </strong>{{job.job_title}}</li>
+    <li class="list-group-item"><strong>Role : </strong>{{job.role}}</li>
+    <li class="list-group-item"><strong>Qualification : </strong>{{job.qualification}}</li>
+      <li class="list-group-item"><strong>Posted Date : </strong>{{job.created_date}}</li>
+
+      <a href="{%url 'cand-jobdetail' job.id%}" class="btn btn-outline-primary">More detail</a>
+
+  </ul>
+</div>
+        {%endfor%}
+
+
+    </div>
+    <div class="col-4"></div>
+      <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4">
+
+              {% for contact in page_obj %}
+    {# Each "contact" is a Contact model object. #}
+    {{ contact.full_name|upper }}<br>
+    ...
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+          </div>
+          <div class="col-4"></div>
+      </div>
+  </div>
+</div>
+{%endblock%}

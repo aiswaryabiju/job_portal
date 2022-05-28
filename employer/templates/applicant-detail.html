@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+
+            <div class="card" style="width: 18rem;">
+  <img src="{{applictns.applicant.candidates.profile_pic.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><strong>Applicant Name : </strong>{{applictns.applicant}}</h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Phone : </strong>{{applictns.applicant.phone}}</li>
+    <li class="list-group-item"><strong>Email : </strong>{{applictns.applicant.email}}</li>
+      <li class="list-group-item"><strong>Qualification : </strong>{{applictns.applicant.candidates.qualification}}</li>
+    <li class="list-group-item"><strong>Age : </strong>{{applictns.applicant.candidates.age}}</li>
+    <li class="list-group-item"><strong>Skills : </strong>{{applictns.applicant.candidates.skills}}</li>
+    <li class="list-group-item"><strong>Applied Date : </strong>{{applictns.date}}</li>
+        <li class="list-group-item"><strong>CV : </strong> <a href="{{applictns.applicant.candidates.cv.url}}">{{applictns.applicant.candidates.cv}}</a></li>
+
+
+
+  </ul>
+  <div class="card-body">
+    <a href="{%url 'accepted_status' applictns.id%}" class="card-link btn btn-outline-success ms-5">Accept</a>
+    <a href="{%url 'updated_status' applictns.id%}" class="card-link btn btn-outline-danger">Reject</a>
+  </div>
+</div>
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

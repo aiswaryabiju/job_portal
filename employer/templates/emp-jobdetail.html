@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block body_block%}
+<div class="container">
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <h1>Job Detail</h1>
+
+        <div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Posted By : </strong>{{job.posted_by}}</li>
+    <li class="list-group-item"><strong>Job Title : </strong>{{job.job_title}}</li>
+    <li class="list-group-item"><strong>Job Description</strong>{{job.job_description}}</li>
+      <li class="list-group-item"><strong>Role : </strong>{{job.role}}</li>
+      <li class="list-group-item"><strong>Experience : </strong>{{job.experience}}</li>
+      <li class="list-group-item"><strong>Location : </strong>{{job.location}}</li>
+    <li class="list-group-item"><strong>Salary : </strong>{{job.salary}}</li>
+    <li class="list-group-item"><strong>Created Date : </strong>{{job.created_date}}</li>
+    <li class="list-group-item"><strong>Last Date : </strong>{{job.last_date}}</li>
+    <li class="list-group-item"><strong>Qualification : </strong>{{job.qualification}}</li>
+
+
+
+  </ul>
+</div>
+
+    </div>
+    <div class="col-4"></div>
+  </div>
+</div>
+{%endblock%}

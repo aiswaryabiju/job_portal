@@ -1,0 +1,61 @@
+
+{%extends 'base1.html'%}
+{%block body_block%}
+
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <h1 class="mt-5 mb-5">Welcome Candidate {{request.user}}</h1>
+
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-1"></div>
+    <div class="col-10">
+      <form action="" method="get">
+        <div class="row">
+          <div class="col-2"><strong>Posted by: </strong>{{filter.form.posted_by}}</div>
+          <div class="col-2"><strong>Job Title:</strong>{{filter.form.job_title}}</div>
+          <div class="col-2"><strong>Role:</strong>{{filter.form.role}}</div>
+          <div class="col-2"><strong>Qualification:</strong>{{filter.form.qualification}}</div>
+          <div class="col-2"><strong>Salary:</strong>{{filter.form.salary}}</div>
+          <div class="col-2"><strong>Location:</strong>{{filter.form.location}}</div>
+          
+        </div>
+        <div class="row">
+          <div class="col-4"></div>
+          <div class="col-4">
+            <input type="submit" class="mt-4 btn btn-secondary">
+          </div>
+          <div class="col-4"></div>
+        </div>
+        
+      </form>
+    </div>
+    <div class="col-1"></div>
+  </div>
+  <div class="row mt-5">
+    {%for job in filter.qs%}
+
+        <div class="col-4">
+
+          <div class="card mt-3" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Job Title : </strong>{{job.job_title}}</li>
+    <li class="list-group-item"><strong>Role : </strong>{{job.role}}</li>
+    <li class="list-group-item"><strong>Qualification : </strong>{{job.qualification}}</li>
+    <li class="list-group-item"><strong>Posted Date : </strong>{{job.created_date}}</li>
+      <a href="{%url 'cand-jobdetail' job.id%}" class="btn btn-outline-primary">More detail</a>
+
+  </ul>
+</div>
+
+        </div>
+        {%endfor%}
+
+
+  </div>
+</div>
+{%endblock%}
